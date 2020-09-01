@@ -1,0 +1,80 @@
+<div class="tab-pane m-5" id="manage">
+
+    <button type="button" class="btn btn-primary" (click)="logout()">Log out</button><br><br>
+
+    <h2>Hello User ....! </h2><br><br>
+    <h3 class = "userheader">Here is the order created for you...!</h3>
+    <hr>
+
+    <table class="table">
+
+        <thead class="thead-light">
+
+            <tr>
+                <th *ngFor="let column of columns">
+                    {{column}}
+                </th>
+            </tr>
+        </thead>
+
+        <tr *ngFor="let prod of pro">
+
+            <td>
+                {{prod.id}}
+              </td>
+  
+              <td>
+                {{prod.userName}}
+              </td>
+
+              <td>
+                {{prod.type}}
+              </td>
+  
+              <td>
+                {{prod.productName}}
+              </td>
+  
+              <td>
+                {{prod.number}}
+              </td>
+  
+              <td>
+                {{prod.email}}
+              </td>
+  
+              <td>
+                {{prod.quantity}}
+              </td>
+  
+              <td>
+                {{prod.orderdatetime}}
+              </td>
+  
+              <td>
+                {{prod.deliverydatetime}}
+              </td>
+  
+              <td>
+                {{prod.orderStatus}}
+              </td>
+  
+              <td>
+                {{prod.doornum}}
+              </td>
+  
+              <td>
+                {{prod.streetname}}
+              </td>
+  
+              <td>
+                {{prod.city}}
+              </td>
+  
+              <td>
+                {{prod.pincode}}
+              </td>
+
+        </tr>
+    </table>
+</div>

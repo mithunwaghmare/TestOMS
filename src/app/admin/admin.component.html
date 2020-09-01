@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container m-5">
+    <h1>Welcome To Admin Page..!</h1><br><br>
+
+    <button type="button" class="btn btn-primary" (click)="logout()">Log out</button><br><br><br>
+
+    <ul class="nav nav-tabs">
+
+      <li class="active"><a data-toggle="tab" href="#manage">Manage Orders</a></li>
+      <li><a data-toggle="tab" href="#add">Add / Place the Order</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="manage">
+        <h2>List of Ordered Customers and their Products</h2>
+        <hr>
+
+        <table class="table" style="width:350px;">
+
+          <thead class="thead-light">
+
+            <tr>
+              <th *ngFor="let column of columns">
+                {{column}}
+              </th>
+            </tr>
+          </thead>
+
+          <tr *ngFor="let prod of productData">
+
+            <td>
+              {{prod.id}}
+            </td>
+
+            <td class = "testuser">
+              {{prod.userName}}
+            </td>
+
+            <td>
+              {{prod.type}}
+            </td>
+
+            <td>
+              {{prod.productName}}
+            </td>
+
+            <td>
+              {{prod.number}}
+            </td>
+
+            <td>
+              {{prod.email}}
+            </td>
+
+            <td>
+              {{prod.quantity}}
+            </td>
+
+            <td>
+              {{prod.orderdatetime}}
+            </td>
+
+            <td>
+              {{prod.deliverydatetime}}
+            </td>
+
+            <td>
+              {{prod.orderStatus}}
+            </td>
+
+            <td>
+              {{prod.doornum}}
+            </td>
+
+            <td>
+              {{prod.streetname}}
+            </td>
+
+            <td>
+              {{prod.city}}
+            </td>
+
+            <td>
+              {{prod.pincode}}
+            </td>
+
+            <td> </td>
+
+            <td>
+              <input type="submit" value="Delete the order" (click)="delete(prod.id)" class="btn btn-danger">
+            </td><br>
+
+            <td> </td>
+
+            <td>
+              <input type="submit" value="Edit the order" (click)="edit(prod.id)" class="btn btn-danger">
+            </td><br>
+
+          </tr>
+        </table>
+      </div>
+
+
+      <div id="add" class="tab-pane">
+
+        <form [formGroup]="profileForm" (ngSubmit)="add()">
+
+          <h1 class = "head">Add your product and your details...!</h1><br>
+
+          <label for="name">User Name :</label><br>
+          <input type="text" class="form-group form-control" id="userName" name="userName"
+            placeholder="Enter the user name" formControlName="userName" required><br>
+
+          <label for="name">Product Type :</label><br>
+          <input list="type" name="type" formControlName="type" required>
+          <datalist id="type">
+            <option value="Mobiles">
+            <option value="Laptop">
+            <option value="Books">
+            <option value="others">
+          </datalist><br><br><br>
+
+          <label for="name">Product Name :</label><br>
+          <input type="text" class="form-group form-control" id="productName" name="productName"
+            placeholder="Select the product to add" formControlName="productName" required><br>
+
+          <label for="name">Quantity :</label><br>
+          <input type="number" class="form-group form-control" id="quantity" name="quantity"
+            placeholder="Select the Quantity" min="1" max="10" formControlName="quantity" required><br>
+
+          <label for="name">Mobile Number :</label><br>
+          <input type="text" class="form-group form-control" name="country_code" maxlength="10" pattern="\d{10}"
+            placeholder="Enter the 10 digit mobile number" formControlName="number" required><br>
+
+          <label for="email">Email :<br>
+            <input type="email" class="form-group form-control" id="email" name="email" placeholder="Enter the mail id"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required formControlName="email" required><br>
+
+            <div
+              *ngIf="profileForm.get('email').errors &&(profileForm.get('email').touched || profileForm.get('email').dirty)"
+              class="alert alert-danger">
+              <div [hidden]="!email.errors?.pattern">
+                Email must contain LowerCase, numbers, Experssions, Special Characters...!
+              </div>
+            </div>
+          </label><br>
+
+          <label for="name">Delivery Address :</label><br>
+
+          <input type="text" class="form-group form-control" id="doornum" name="doornum"
+            placeholder="Enter the house door number" maxlength="5" pattern="\d{10}+\{a-z}"
+            formControlName="doornum" required><br>
+
+
+          <input type="text" class="form-group form-control" id="streetname" name="streetname"
+            placeholder="Enter the street name" min="1" max="5" formControlName="streetname" required><br>
+
+          <input type="text" class="form-group form-control" id="city" name="city"
+            placeholder="Enter the place / city name" min="1" max="5" formControlName="city" required><br>
+
+          <input type="text" class="form-group form-control" id="pincode" name="pincode"
+            placeholder="Enter the pincode" maxlength="7" pattern="\d{10}" formControlName="pincode" required><br>
+
+
+          <label for="orderdatetime">Orderering date and time :</label><br>
+          <input type="datetime-local" id="orderdatetime" name="orderdatetime"
+            formControlName="orderdatetime" required><br><br><br>
+
+          <label for="deliverydatetime">Expected delivery date and time :</label><br>
+          <input type="datetime-local" id="deliverydatetime" name="deliverydatetime"
+            formControlName="deliverydatetime" required><br><br><br>
+
+          <label for="name">Order Status :</label><br>
+          <input list="orderstatus" name="orderstatus" formControlName="orderStatus" required>
+          <datalist id="orderstatus">
+            <option value="created">
+            <option value="accepted">
+            <option value="inprogress">
+            <option value="completed">
+          </datalist><br><br><br>
+
+          <input type="submit" value="Add to the cart to buy"  class="btn btn-danger">
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+

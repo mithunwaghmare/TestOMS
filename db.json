@@ -1,0 +1,162 @@
+{
+  "users": [
+    {
+      "userName": "arun",
+      "password": "Arun@12345",
+      "email": "arun@gmail.com",
+      "id": 1
+    },
+    {
+      "userName": "naveen",
+      "password": "Naveen@12345",
+      "email": "naveen21@gmail.com",
+      "id": 2
+    },
+    {
+      "userName": "ram",
+      "password": "Ram@12345",
+      "email": "ram@gmail.com",
+      "id": 3
+    },
+    {
+      "userName": "suresh",
+      "password": "Suresh@12345",
+      "email": "suresh@gmail.com",
+      "id": 4
+    },
+    {
+      "userName": "ajith",
+      "password": "Ajith@12345",
+      "email": "ajith@gmail.com",
+      "id": 5
+    },
+    {
+      "userName": "santhosh",
+      "password": "Santhosh@12345",
+      "email": "santhosh@gmail.com",
+      "id": 6
+    },
+    {
+      "userName": "hari",
+      "password": "Hari@12345",
+      "email": "hari@gmail.com",
+      "id": 7
+    },
+    {
+      "userName": "anusuya",
+      "password": "Anusuya@12345",
+      "email": "anusuya@gmail.com",
+      "id": 8
+    },
+    {
+      "userName": "bal",
+      "password": "Bal@12345",
+      "email": "bal@gmail.com",
+      "id": 9
+    },
+    {
+      "userName": "zak",
+      "password": "Zak@12345",
+      "email": "zak@gmail.com",
+      "id": 10
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "userName": "arun",
+      "type": "Mobiles",
+      "productName": "Redmi",
+      "number": "9876543210",
+      "email": "arun@gmail.com",
+      "quantity": 1,
+      "orderdatetime": "2020-08-01T08:35",
+      "deliverydatetime": "2020-08-10T09:35",
+      "doornum": "12/B",
+      "streetname": "north street",
+      "city": "Madurai",
+      "pincode": 654321,
+      "orderStatus": "created"
+    },
+    {
+      "id": 2,
+      "userName": "naveen",
+      "type": "Laptop",
+      "productName": "Dell",
+      "number": "8796541205",
+      "email": "naveen21@gmail.com",
+      "quantity": 1,
+      "orderdatetime": "2020-08-03T22:45",
+      "deliverydatetime": "2020-08-20T10:00",
+      "doornum": "1A",
+      "streetname": "south street",
+      "city": "Bangalore",
+      "pincode": 635412,
+      "orderStatus": "accepted"
+    },
+    {
+      "id": 3,
+      "userName": "ram",
+      "type": "Books",
+      "productName": "you are born to blossom",
+      "number": "7412589630",
+      "email": "ra@gmail.com",
+      "quantity": 2,
+      "orderdatetime": "2020-08-02T09:50",
+      "deliverydatetime": "2020-08-24T11:50",
+      "doornum": "18G",
+      "streetname": "rainbow colony",
+      "city": "Chennai",
+      "pincode": 665241,
+      "orderStatus": "inprogress"
+    },
+    {
+      "id": 4,
+      "userName": "suresh",
+      "type": "others",
+      "productName": "Philips Trimmer",
+      "number": "8796541205",
+      "email": "sur@gmail.com",
+      "quantity": 1,
+      "orderdatetime": "2020-08-11T08:50",
+      "deliverydatetime": "2020-08-24T08:50",
+      "doornum": "1a",
+      "streetname": "anna nagar",
+      "city": "Chennai",
+      "pincode": 653201,
+      "orderStatus": "inprogress"
+    },
+    {
+      "id": 5,
+      "userName": "ajith",
+      "type": "Laptop",
+      "productName": "Lenovo",
+      "number": "7411456320",
+      "email": "ajith@gmail.com",
+      "quantity": 5,
+      "orderdatetime": "2020-08-17T12:49",
+      "deliverydatetime": "2020-08-30T12:50",
+      "doornum": 36,
+      "streetname": "bus stand",
+      "city": "Dindigul",
+      "pincode": "541207",
+      "orderStatus": "completed"
+    },
+    {
+      "id": 6,
+      "userName": "bal",
+      "type": "Books",
+      "productName": "fgfg",
+      "number": "8796541230",
+      "email": "ba@gmail.com",
+      "quantity": 1,
+      "orderdatetime": "2020-08-31T09:57",
+      "deliverydatetime": "2020-09-15T09:57",
+      "doornum": "1",
+      "streetname": "wq",
+      "city": "qwq",
+      "pincode": "2589633",
+      "orderStatus": "completed"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div class="container m-5">
+    <form [formGroup]="editForm">
+      <h1>Add the Customer Product and Update if needed...!</h1><br>
+
+      <label for="name">User Name :</label><br>
+      <input type="text" class="form-group form-control" id="userName" name="userName"
+        placeholder="Enter user name you have signed-in" formControlName="userName"><br>
+
+        <label for="name">Product Type :</label><br>
+        <input list="type" name="type" formControlName="type">
+        <datalist id="type">
+          <option value="Mobiles">
+          <option value="Laptop">
+          <option value="Books">
+          <option value="others">
+        </datalist><br><br><br>
+        
+      <label for="name">Product Name :</label><br>
+      <input type="text" class="form-group form-control" id="productName" name="productName"
+        placeholder="Select your product to add" formControlName="productName"><br>
+
+      <label for="name">Quantity :</label><br>
+      <input type="number" class="form-group form-control" id="quantity" name="quantity"
+        placeholder="Select the Quantity" min="1" max="10" formControlName="quantity"><br>
+
+      <label for="name">Mobile Number :</label><br>
+      <input type="text" class="form-group form-control" name="country_code" maxlength="10" pattern="\d{10}"
+        placeholder="Enter your 10 digit mobile number" formControlName="number"><br>
+
+      <label for="email">Email :<br>
+        <input type="email" class="form-group form-control" id="email" name="email" placeholder="Enter your mail id"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required formControlName="email"><br>
+
+        <div *ngIf="editForm.get('email').errors &&(editForm.get('email').touched || editForm.get('email').dirty)"
+          class="alert alert-danger">
+          <div [hidden]="!email.errors?.pattern">
+            Email must contain LowerCase, numbers, Experssions, Special Characters...!
+          </div>
+        </div>
+      </label><br>
+
+      <label for="orderdatetime">Orderering date and time :</label><br>
+      <input type="datetime-local" id="orderdatetime" name="orderdatetime" formControlName="orderdatetime"><br><br><br>
+
+      <label for="deliverydatetime">Expected delivery date and time :</label><br>
+      <input type="datetime-local" id="deliverydatetime" name="deliverydatetime"
+        formControlName="deliverydatetime"><br><br><br>
+
+      <label for="name">Delivery Address :</label><br>
+
+      <input type="number" class="form-group form-control" id="doornum" name="doornum"
+        placeholder="Enter your house door number" min="1" max="5" formControlName="doornum"><br>
+
+
+      <input type="text" class="form-group form-control" id="streetname" name="streetname"
+        placeholder="Enter your street name" min="1" max="5" formControlName="streetname"><br>
+
+      <input type="text" class="form-group form-control" id="city" name="city"
+        placeholder="Enter your place / city name" min="1" max="5" formControlName="city"><br>
+
+      <input type="number" class="form-group form-control" id="pincode" name="pincode" placeholder="Enter your pincode"
+        min="1" max="6" formControlName="pincode"><br>
+
+      <label for="name">Order Status :</label><br>
+      <input list="orderstatus" name="orderstatus" formControlName="orderStatus">
+      <datalist id="orderstatus">
+        <option value="created">
+        <option value="accepted">
+        <option value="inprogress">
+        <option value="completed">
+      </datalist><br><br><br>
+
+      <input type="submit" value="save changes" (click)="changes()" class="btn btn-danger">
+
+    </form>
+  </div>
+</body>
+
+</html>
+

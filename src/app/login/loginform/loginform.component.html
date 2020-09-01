@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div class="container m-5">
+    <!--  -->
+    <div *ngIf="signupStatus == 'true'">
+      <h5><i class="material-icons " href="#">error_outline</i>Sign up Successfull...!</h5><br><br>
+    </div>
+
+    <!-- check if already existing user is signing up then display message -->
+    <div *ngIf="signupStatus == 'false'">
+      <h5><i class="material-icons " href="#">error_outline</i> User Already Exist !! Login.</h5><br><br>
+    </div>
+
+    <!-- to check whether entered username password is correct or not -->
+    <div *ngIf="errmsg">
+      <div class="alert alert-danger">
+        <strong>!</strong> User name or password is invalid..
+      </div>
+    </div>
+
+    <!-- to give details of every input box in login page -->
+    <div *ngIf="nullvar">
+      <div class="alert alert-danger">
+        <strong  class = "logincheck" >!</strong>Details are required..
+      </div>
+    </div>
+
+    <form [formGroup]="profileForm" (ngSubmit)="loginfun()" >
+
+      <label for="name">User Name :</label><br><br>
+      <input type="text" class="form-group form-control" id="userName" name="userName" value=""
+        formControlName="userName" required><br>
+
+      <label for="password">Password :<br><br>
+        <input type="password" class="form-group form-control" id="pswd" name="pswd"
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" formControlName="pass"
+          required><br><br>
+
+        <div *ngIf="profileForm.get('pass').errors &&(profileForm.get('pass').touched || profileForm.get('pass').dirty)"
+          class="alert alert-danger">
+          <div [hidden]="!pass.errors?.pattern">
+            Password must contain UpperCase, LowerCase, numbers, Special Characters...!
+          </div>
+        </div>
+
+      </label><br>
+
+      <input type="submit" value="Submit" id="btnSubmit" class="btn btn-danger">
+
+    </form>
+  </div>
+</body>
+
+</html>
+
+

@@ -1,0 +1,84 @@
+<div class="container m-5">
+  <h1 class = "signupheader"> ORDER MANAGEMENT SYSTEM</h1><br><br>
+
+  <form [formGroup]="profileForm">
+
+    <div class="row">
+      <div class="col-sm-12 mb-3">
+        <label><br>
+          User Name:
+          <input type="text" class="form-group form-control" placeholder="Enter the user name"
+            formControlName="userName"  required><br>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 mb-3">
+        <label for="email">Email :<br>
+          <input type="email" class="form-group form-control" id="email" name="email" placeholder="Enter your mail id"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required formControlName="email"><br>
+
+          <div
+            *ngIf="profileForm.get('email').errors &&(profileForm.get('email').touched || profileForm.get('email').dirty)"
+            class="alert alert-danger">
+            <div [hidden]="!email.errors?.pattern">
+              Email must contain LowerCase, numbers, Experssions, Special Characters...!
+            </div>
+          </div>
+        </label><br>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-12 mb-3">
+        <label><br>
+          Password:
+          <input type="password" class="form-group form-control" placeholder="Enter Password"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" formControlName="pass"
+            required><br>
+
+          <div
+            *ngIf="profileForm.get('pass').errors &&(profileForm.get('pass').touched || profileForm.get('pass').dirty)"
+            class="alert alert-danger">
+            <div [hidden]="!pass.errors?.pattern">
+              Password must contain UpperCase, LowerCase, numbers, Special Characters...!
+            </div>
+          </div>
+
+        </label>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-12 mb-3">
+
+        <label><br>
+          Re-type Password:
+          <input type="password" class="form-group form-control" placeholder="Re-type the Password"
+            formControlName="repass" required><br>
+        </label>
+
+        <div
+          *ngIf="profileForm.get('repass').value != profileForm.get('pass').value && profileForm.get('repass').touched">
+          <h6><i class="material-icons ">error</i>Confirm Password does not match Password</h6>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 mb-3">
+        <button type="button" (click)="signup(profileForm)" [disabled]="!profileForm.valid" class="btn btn-danger">Sign up</button>
+      </div>
+
+      <div class="col-sm-4 mb-3 text-muted">
+        Already Existing User ?<a routerLink="/login"> Login</a>
+      </div>
+
+    </div>
+  </form>
+</div>
